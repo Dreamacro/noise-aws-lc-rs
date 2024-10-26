@@ -3,6 +3,7 @@ name = "noise-aws-lc-rs"
 version = "0.1.0"
 edition = "2021"
 description = "aws-lc-rs wrappers for nosie-protocol."
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 aws-lc-rs = "1.10"
