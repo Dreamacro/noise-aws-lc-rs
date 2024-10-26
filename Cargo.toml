@@ -1,0 +1,10 @@
+[package]
+name = "noise-aws-lc-rs"
+version = "0.1.0"
+edition = "2021"
+description = "aws-lc-rs wrappers for nosie-protocol."
+
+[dependencies]
+aws-lc-rs = "1.10"
+noise-protocol = "0.2"
+zeroize = "1"
