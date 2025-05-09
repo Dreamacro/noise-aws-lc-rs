@@ -40,9 +40,11 @@ impl Cipher for ChaCha20Poly1305 {
         in_out: &mut [u8],
         plaintext_len: usize,
     ) -> usize {
-        assert!(plaintext_len
-            .checked_add(TAGLEN)
-            .map_or(false, |l| l <= in_out.len()));
+        assert!(
+            plaintext_len
+                .checked_add(TAGLEN)
+                .is_some_and(|l| l <= in_out.len())
+        );
 
         let mut nonce_bytes = [0u8; 12];
         nonce_bytes[4..].copy_from_slice(&nonce.to_le_bytes());
@@ -142,9 +144,11 @@ impl Cipher for Aes256Gcm {
         in_out: &mut [u8],
         plaintext_len: usize,
     ) -> usize {
-        assert!(plaintext_len
-            .checked_add(TAGLEN)
-            .map_or(false, |l| l <= in_out.len()));
+        assert!(
+            plaintext_len
+                .checked_add(TAGLEN)
+                .is_some_and(|l| l <= in_out.len())
+        );
 
         let mut nonce_bytes = [0u8; 12];
         nonce_bytes[4..].copy_from_slice(&nonce.to_be_bytes());
